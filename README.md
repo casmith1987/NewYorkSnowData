@@ -5,7 +5,7 @@ npm packages used - axios
 
 This is a javascript class that interacts with a web api.  
 The class contains a cache to prevent repeat api calls.
-Within the class methods are added to get desired data from the api.
+Within the class, methods are added to get desired data from the api.
 Currently, there is only one method - One which extracts snowfall data
 for the city of New York over a two year period.
 
@@ -34,3 +34,7 @@ Run 'npm i' to install dependencies (axios).
 Then run 'node runScript.js'
 
 Results should then be logged to the console.
+
+With more time, I would have liked to add unit testing via Mocha / Chai or Jest.
+I would also have liked to implement React and provide a clean UI experience to display
+the returned information.
