@@ -4,10 +4,12 @@
   "description": "",
   "main": "api.js",
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "jest": "^28.1.0"
   },
   "devDependencies": {},
   "scripts": {
+    "fetchData": "./runScript.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
