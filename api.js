@@ -13,14 +13,14 @@ class InteractWithApi {
 
   async fetchAndPrintSnowData() {
     const apiCache = this.apiCache;
+    const endPoint =
+      'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New%20York/2021-01-01/2022-03-20?unitGroup=us&include=days&key=JUX7ZDU9EGESLYPH3XAQLR6MT&contentType=json';
 
-    if (!apiCache.has('weatherData')) {
+    if (!apiCache.has(endPoint)) {
       try {
         //Data is retrieved from api and stored in apiCache.
-        const { data } = await axios.get(
-          'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New%20York/2021-01-01/2022-03-20?unitGroup=us&include=days&key=JUX7ZDU9EGESLYPH3XAQLR6MT&contentType=json'
-        );
-        apiCache.set('weatherData', data);
+        const { data } = await axios.get(endPoint);
+        apiCache.set(endPoint, data);
       } catch (err) {
         console.log('\nWhoops!  An error occured.  See Below for details.');
         console.log('\n', err.message);
@@ -38,11 +38,11 @@ class InteractWithApi {
       }
     }
 
-    if (!apiCache.has('weatherData'))
+    if (!apiCache.has(endPoint))
       return console.log('\nSorry!  We are working to fix this issue asap.');
 
     const daysSnowed = apiCache
-      .get('weatherData')
+      .get(endPoint)
       .days.filter((day) => day.snow > 0);
 
     let maxSnow = 0;
@@ -58,9 +58,7 @@ class InteractWithApi {
     }
 
     //Log final results.
-    console.log(
-      `\nTotal Days Surveyed: ${apiCache.get('weatherData').days.length}`
-    );
+    console.log(`\nTotal Days Surveyed: ${apiCache.get(endPoint).days.length}`);
 
     console.log(`\nDAYS SNOWED: ${daysSnowed.length}`);
 
