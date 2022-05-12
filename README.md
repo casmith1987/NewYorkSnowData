@@ -38,3 +38,4 @@ Results should then be logged to the console.
 With more time, I would have liked to add unit testing via Mocha / Chai or Jest.
 I would also have liked to implement React and provide a clean UI experience to display
 the returned information.
+![alt text](https://github.com/casmith1987/NewYorkSnowData/blob/main/EngineerScripts/Screen%20Shot%202022-05-11%20at%2011.18.42%20PM.png)
